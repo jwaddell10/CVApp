@@ -7,8 +7,8 @@ function App() {
   const [formData, setFormData] = useState({name: "",email: "",telephone: ""});
 
   const handleChange = (event) => {
-    const { name } = event.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: event.target.value }));
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
     console.log(formData, 'this is formdata check')
   };
 
@@ -51,6 +51,7 @@ function App() {
                 name = {formData.email}
                 type = "email"
                 label = "email"
+                value={formData.email}
                 onChange={handleChange}
             />
             <h3 className='formZeroInformation'>Phone Number:</h3>
