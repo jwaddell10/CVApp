@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
@@ -58,6 +56,7 @@ const handleButtonClick = (index) => {
 }
 
 
-//three buttons, when one is clicked display that form.
+//preview button that lets you preview text
+//edit button lets you go back to previous state
 
 export default App
