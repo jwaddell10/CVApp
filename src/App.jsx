@@ -41,14 +41,14 @@ function App() {
           <form onSubmit = {handleSubmit}>
             <h3 className = "formZeroInformation">Name:</h3>
             <input
-                name = {formData.name} 
+                name = "personName" 
                 type = "text" 
                 label = "name"
                 onChange = {handleChange}
             />
            <h3 className='formZeroInformation'>Email:</h3>
             <input 
-                name = {formData.email}
+                name = "personEmail"
                 type = "email"
                 label = "email"
                 value={formData.email}
@@ -56,7 +56,7 @@ function App() {
             />
             <h3 className='formZeroInformation'>Phone Number:</h3>
             <input 
-                name = {formData.telephone} 
+                name = "personTelephone" 
                 type = "tel" 
                 label = "telephone"
                 onChange = {handleChange}
