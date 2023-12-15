@@ -4,10 +4,22 @@ import './App.css'
 
 function App() {
 
-  const [formData, setFormData] = useState({name: "",email: "",telephone: ""});
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    telephone: "", 
+    schoolname: "", 
+    major: "", 
+    graduation: "",
+    company: "",
+    position: "",
+    start: "", 
+    end: ""
+  });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+    console.log(event.target, 'this is evtarg')
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
     console.log(formData, 'this is formdata check')
   };
@@ -15,7 +27,8 @@ function App() {
   const handleSubmit = (event) => {
     event.preventDefault();
     
-    alert(`Name: ${formData.name}, Email: ${formData.email}, Telephone: ${formData.telephone}`
+    alert(`Name: ${formData.name}, Email: ${formData.email}, Telephone: ${formData.telephone}, School: ${formData.schoolname}, major: ${formData.major},
+    grad: ${formData.graduation}, company: ${formData.company}, position: ${formData.position}, start: ${formData.start}, end: ${formData.end}`
     );
 };
     const [activeIndex, setActiveIndex] = useState(0)
@@ -41,14 +54,15 @@ function App() {
           <form onSubmit = {handleSubmit}>
             <h3 className = "formZeroInformation">Name:</h3>
             <input
-                name = "personName" 
+                name = "name" 
                 type = "text" 
                 label = "name"
+                value = {formData.name}
                 onChange = {handleChange}
             />
            <h3 className='formZeroInformation'>Email:</h3>
             <input 
-                name = "personEmail"
+                name = "email"
                 type = "email"
                 label = "email"
                 value={formData.email}
@@ -56,53 +70,75 @@ function App() {
             />
             <h3 className='formZeroInformation'>Phone Number:</h3>
             <input 
-                name = "personTelephone" 
+                name = "telephone" 
                 type = "tel" 
                 label = "telephone"
+                value = {formData.telephone}
                 onChange = {handleChange}
             />
           </form>
         )}
       {activeIndex === 1 && (
-          <form>
-            <h3 className = "formOneInformation">School Name:</h3>
+          <form onSubmit = {handleSubmit}>
+          <h3 className = "formOneInformation">School Name:</h3>
             <input 
+                name = "schoolname"
                 type = "text" 
-                label = "schoolName"
+                label = "schoolname"
+                value = {formData.schoolname}
+                onChange = {handleChange}
             />
             <h3 className = "formOneInformation">Major:</h3>
             <input 
+                name = "major"
                 type = "text" 
                 label = "studyProgram"
+                value = {formData.major}
+                onChange = {handleChange}
             />
             <h3 className='formOneInformation'>Graduation Year:</h3>
             <input 
+                name = "graduation"
                 type="number" 
                 label = "studyDates"
+                value = {formData.graduation}
+                onChange = {handleChange}
             />
           </form>
         )}
       {activeIndex === 2 && (
-          <form>
+          <form onSubmit = {handleSubmit}>
             <h3 className = "formTwoInformation">Company Name:</h3>
             <input 
+                name = "company"
                 type = "text" 
                 label = "schoolName"
+                value = {formData.company}
+                onChange = {handleChange}
             /> 
             <h3 className = "formTwoInformation">Position:</h3>
             <input 
+                name = "position"
                 type = "text" 
                 label = "studyProgram"
+                value = {formData.position}
+                onChange = {handleChange}
             />
             <h3 className='formTwoInformation'>Start Date:</h3>
             <input 
+                name = "start"
                 type="date" 
                 label = "startDate"
+                value = {formData.start}
+                onChange={handleChange}
             />
             <h3 className='formTwoInformation'>End Date:</h3>
             <input 
+                name="end"
                 type="date" 
                 label = "endDate"
+                value={formData.end}
+                onChange={handleChange}
             />
           </form>
         )}  
