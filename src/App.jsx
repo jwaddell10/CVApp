@@ -4,6 +4,8 @@ import './App.css'
 
 function App() {
 
+  //flag something as true, if true, render ?
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,20 +21,21 @@ function App() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log(event.target, 'this is evtarg')
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-    console.log(formData, 'this is formdata check')
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    
-    alert(`Name: ${formData.name}, Email: ${formData.email}, Telephone: ${formData.telephone}, School: ${formData.schoolname}, major: ${formData.major},
-    grad: ${formData.graduation}, company: ${formData.company}, position: ${formData.position}, start: ${formData.start}, end: ${formData.end}`
-    );
-};
-    const [activeIndex, setActiveIndex] = useState(0)
+  const handleSubmit = () => {
+    if (hidden === true) {
+      console.log('its true')
+    } else {
+      console.log('its false')
+    }
+  };
 
+  // eslint-disable-next-line react/prop-types
+    const [hidden, setHidden] = useState(false);
+
+    const [activeIndex, setActiveIndex] = useState(0)
 
 
     const handleButtonClick = (index) => {
@@ -49,8 +52,10 @@ function App() {
         <button onClick = {() => handleButtonClick(1)}>Educational Experience:</button>
         <button onClick = {() => handleButtonClick(2)}>Work Experience:</button>
      </div>
-
-      {activeIndex === 0 && (
+     <button onClick={() => { setHidden(!hidden); handleSubmit(); }}>
+        {hidden ? 'preview' : 'test'}
+     </button> 
+        {activeIndex === 0 && (
           <form onSubmit = {handleSubmit}>
             <h3 className = "formZeroInformation">Name:</h3>
             <input
@@ -142,10 +147,8 @@ function App() {
             />
           </form>
         )}  
-
-        <button onClick={handleSubmit}>preview</button>
    </div>
-   ) 
+    ) 
 }
 
 //preview button that lets you preview text
